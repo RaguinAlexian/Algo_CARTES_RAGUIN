@@ -1,3 +1,5 @@
+import random
+
 class Mage:
     def __init__(self, nom, pv, manaM):
         self.__name = nom
@@ -22,6 +24,9 @@ class Mage:
     def getCurrentMana(self) :
         return self.__currentMana
 
+    def getCard(self) :
+        self.__hand.append(self.__deck.pop())
+
     def gainMana(self) :
         self.__currentMana = self.__manaMax
 
@@ -40,15 +45,15 @@ class Mage:
             return "Impossible"
 
     def showHand(self) :
-        for i in range(self.__hand) :
+        for i in range(len(self.__hand)) :
             return self.__hand[i]
 
     def showCimetery(self) :
-        for i in range(self.__discard) :
+        for i in range(len(self.__discard)) :
             return self.__discard[i]
 
     def showPlayed(self) :
-        for i in range(self.__gameCard) :
+        for i in range(len(self.__gameCard)) :
             return self.__gameCard[i]
 
 class Carte(Mage):
@@ -107,3 +112,8 @@ class Cristal(Carte):
 
     def getValue(self) :
         return self.__value
+
+class Shuffle(Carte):
+
+    def deckShuffle(self):        
+        random.shuffle(self.__deck)
