@@ -8,8 +8,11 @@ class Mage:
         self.__currentMana = manaM
         self.__hand = [] 
         self.__gameCard = [] 
+        self.__gameCardSize = 0
         self.__discard = []
+        self.__discardSize = 0
         self.__deck = []
+        self.__deckSize = 0
         self.__availableCase = 0
 
     def getName(self) :
@@ -23,7 +26,6 @@ class Mage:
 
     def getCurrentMana(self) :
         return self.__currentMana
-
 
     def gainMana(self) :
         self.__currentMana = self.__manaMax
@@ -147,3 +149,4 @@ if(isinstance(joueur1.showHand(0),Creature)) :
     print("Pv", joueur1.showHand(0).getPv())
 if(isinstance(joueur1.showHand(0),Blast)) :
     print("Inflige",joueur1.showHand(0).damageBlast())
+
